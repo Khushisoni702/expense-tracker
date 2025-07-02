@@ -27,9 +27,37 @@ It allows users to manage income and expenses, view monthly summaries, visualize
 
 ---
 
-## 📂 Folder Structure (Simplified)
+## 📂 Folder Structure
 
-📁 src/ ┣ 📁 components/ ┃ ┣ AddTransaction.js ┃ ┣ TransactionList.js ┃ ┣ Chart.js ┃ ┗ ExportData.js ┣ 📁 pages/ ┃ ┣ Login.js ┃ ┗ Signup.js ┣ App.js ┣ firebase.js ┣ index.js ┗ styles.css (or Tailwind config)
+expense-tracker-pro/
+│
+├── public/
+│ └── index.html
+│
+├── src/
+│ ├── assets/
+│ │ └── (images, icons, etc.)
+│ │
+│ ├── components/
+│ │ ├── AddTransaction.js
+│ │ ├── Chart.js
+│ │ ├── ExportData.js
+│ │ ├── MonthlyInsights.js
+│ │ ├── Navbar.js
+│ │ └── TransactionList.js
+│ │
+│ ├── pages/
+│ │ ├── Login.js
+│ │ └── Signup.js
+│ │
+│ ├── App.js
+│ ├── firebase.js
+│ ├── index.css
+│ └── index.js
+│
+├── package.json
+├── tailwind.config.js
+└── README.md
 
 ---
 
@@ -43,10 +71,33 @@ It allows users to manage income and expenses, view monthly summaries, visualize
 
 npm install
 
+3. Setup your Firebase project and paste your config in firebase.js.
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
-3. Start the app:
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+4.Start the development server
 
 npm start
 
+📤 Export Examples
+CSV Export: Download filtered transactions with date/category/income/expense.
 
-4. Setup your Firebase project and paste your config in firebase.js.
+PDF Export: Includes bar and pie charts along with summary data.
+
+## 🙌 Credits
+This project was created as part of my Web Development Internship at Codec Technologies.
+
