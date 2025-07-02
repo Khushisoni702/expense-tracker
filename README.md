@@ -69,31 +69,30 @@ expense-tracker-pro/
 
 2. Install dependencies:
 
-npm install
+    npm install
 
 3. Setup your Firebase project and paste your config in firebase.js.
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+   import { initializeApp } from "firebase/app";
+   import { getFirestore } from "firebase/firestore";
+   import { getAuth } from "firebase/auth";
+   const firebaseConfig = {
+   apiKey: "YOUR_API_KEY",
+   authDomain: "YOUR_AUTH_DOMAIN",
+   projectId: "YOUR_PROJECT_ID",
+   storageBucket: "YOUR_STORAGE_BUCKET",
+   messagingSenderId: "YOUR_SENDER_ID",
+   appId: "YOUR_APP_ID"
+   };
+   const app = initializeApp(firebaseConfig);
+   export const db = getFirestore(app);
+   export const auth = getAuth(app);
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+4. Start the development server
 
-4.Start the development server
+   npm start
 
-npm start
-
-📤 Export Examples
+## 📤 Export Examples
 CSV Export: Download filtered transactions with date/category/income/expense.
 
 PDF Export: Includes bar and pie charts along with summary data.
